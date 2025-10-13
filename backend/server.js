@@ -1,10 +1,14 @@
 import app from "./app.js";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-//database
+dotenv.config();
+
+console.log("DOTENV", process.env.DATABASE_URL)
 mongoose
   .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
+    useUnifiedTopology: true
   })
   .then(() => console.log("database connected successfully"))
   .catch((err) => console.log("error connecting to mongodb", err));
