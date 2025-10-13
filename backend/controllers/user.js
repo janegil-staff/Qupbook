@@ -1,3 +1,3 @@
-exports.home = (req, res) => {
+export const home = async (req, res) => {
   res.send("welcome from user home");
 };
