@@ -7,7 +7,7 @@ import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../helpers/tokens.js";
-import { sendVerificationEmail } from "../helpers/mailer.js";
+//import { sendVerificationEmail } from "../helpers/mailer.js";
 
 export const register = async (req, res) => {
   try {
@@ -72,7 +72,7 @@ export const register = async (req, res) => {
       "30m"
     );
     const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
-    sendVerificationEmail(user.email, user.first_name, url);
+    //sendVerificationEmail(user.email, user.first_name, url);
     const token = generateToken({ id: user._id.toString() }, "7d");
     res.send({
       id: user._id,
